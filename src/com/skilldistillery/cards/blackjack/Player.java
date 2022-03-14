@@ -22,6 +22,9 @@ public class Player {
 		hand.addCard(card);
 	}
 
+		
+	
+	
 	public int askHandValue () {
 		return hand.getHandValue();
 	}

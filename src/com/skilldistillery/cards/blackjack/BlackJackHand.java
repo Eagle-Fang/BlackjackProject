@@ -10,12 +10,26 @@ public class BlackJackHand extends Hand {
 	}
 
 	public int getHandValue() {
+		int aceCount = 0;
 		int value = 0;
+		boolean aceFlag = false;
 		for (Card card : cards) {
+			if (card.getValue() == 11) {
+				aceFlag = true;
+				aceCount ++;
+			}
 			value += card.getValue();
+		}
+		if (aceFlag && value > TWENTY_ONE) {
+		for (int i=0; i < aceCount; i++) {
+			value -= 10; // Change ace to 1 if hand is over 21 
+		}
+			System.out.println("Ace value adjusted");
 		}
 		return value;
 	}
+	
+		
 
 	public boolean isBlackJack() {
 		if (getHandValue() == TWENTY_ONE) {
@@ -31,6 +45,10 @@ public class BlackJackHand extends Hand {
 		return false;
 	}
 
+	public int checkHandSize() {
+		return cards.size();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -39,7 +57,6 @@ public class BlackJackHand extends Hand {
 	}
 
 	public boolean isTwentyOne() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

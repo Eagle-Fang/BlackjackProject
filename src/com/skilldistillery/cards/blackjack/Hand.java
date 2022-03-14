@@ -27,9 +27,13 @@ public abstract class Hand {
 
 	public List<Card> getCards() {
 		return cards;
-
 	}
 
+	
+	public int checkHandSize() {
+		return cards.size();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
